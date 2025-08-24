@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prompt Flyer Generate - Vina Creative Studio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-white min-h-screen flex items-center justify-center p-4">
+  <div class="w-full max-w-md bg-gray-900 rounded-2xl shadow-lg p-6">
+    <h1 class="text-xl font-bold text-center mb-4">Prompt Flyer Generate</h1>
+
+    <!-- Nama Brand -->
+    <label class="block mb-2 text-sm">Nama Brand</label>
+    <input id="brand" type="text" placeholder="Contoh: Vina Coffee" class="w-full p-2 mb-4 bg-gray-800 rounded text-white">
+
+    <!-- Jenis Produk -->
+    <label class="block mb-2 text-sm">Jenis Produk</label>
+    <input id="product" type="text" placeholder="Contoh: Minuman Kopi" class="w-full p-2 mb-4 bg-gray-800 rounded text-white">
+
+    <!-- Template Flyer -->
+    <label class="block mb-2 text-sm">Pilih Template Flyer</label>
+    <select id="template" class="w-full p-2 mb-4 bg-gray-800 rounded text-white">
+      <option value="promo">Promo</option>
+      <option value="diskon">Diskon</option>
+      <option value="soft launching">Soft Launching</option>
+    </select>
+
+    <!-- Warna Tema -->
+    <label class="block mb-2 text-sm">Pilih Warna Tema</label>
+    <select id="color" class="w-full p-2 mb-4 bg-gray-800 rounded text-white">
+      <option value="merah">Merah</option>
+      <option value="biru">Biru</option>
+      <option value="hijau">Hijau</option>
+      <option value="ungu">Ungu</option>
+      <option value="hitam elegan">Hitam Elegan</option>
+    </select>
+
+    <!-- Copywriting Manual -->
+    <label class="block mb-2 text-sm">Copywriting Manual (opsional)</label>
+    <textarea id="manual" placeholder="Tulis copywriting sendiri..." class="w-full p-2 mb-4 bg-gray-800 rounded text-white"></textarea>
+
+    <!-- Tombol Generate & Copy -->
+    <button onclick="generatePrompt()" class="w-full bg-purple-600 hover:bg-purple-700 py-2 rounded mb-2">Generate Prompt</button>
+    <button onclick="copyPrompt()" class="w-full bg-green-600 hover:bg-green-700 py-2 rounded">Copy Prompt</button>
+
+    <!-- Output -->
+    <div class="mt-4">
+      <label class="block mb-2 text-sm">Hasil Prompt</label>
+      <textarea id="output" readonly class="w-full p-2 bg-gray-800 rounded text-white"></textarea>
+    </div>
+  </div>
+
+  <script>
+    function generatePrompt() {
+      const brand = document.getElementById('brand').value || "Brand UMKM";
+      const product = document.getElementById('product').value || "Produk";
+      const template = document.getElementById('template').value;
+      const color = document.getElementById('color').value;
+      const manual = document.getElementById('manual').value;
+
+      let autoCopy = "";
+
+      if (template === "promo") {
+        autoCopy = `Buatkan desain flyer ${product} dengan konsep promo spesial ${brand}, warna tema ${color}, modern & menarik.`;
+      } else if (template === "diskon") {
+        autoCopy = `Desain flyer ${product} untuk campaign diskon besar-besaran ${brand}, warna ${color}, estetik & eye-catching.`;
+      } else if (template === "soft launching") {
+        autoCopy = `Flyer ${product} untuk soft launching ${brand}, nuansa ${color}, elegan & minimalis.`;
+      }
+
+      const result = manual.trim() ? manual : autoCopy;
+      document.getElementById('output').value = result;
+    }
+
+    function copyPrompt() {
+      const output = document.getElementById('output');
+      output.select();
+      document.execCommand('copy');
+      alert('Prompt berhasil disalin!');
+    }
+  </script>
+</body>
+</html>
