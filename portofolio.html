@@ -1,33 +1,279 @@
-<!-- Portfolio Section -->
-<section class="max-w-6xl mx-auto px-6 py-12">
-  <h2 class="text-3xl font-bold text-center mb-8">Portfolio</h2>
-  <p class="text-gray-400 text-center mb-12">Beberapa project terbaru dari Vina Creative Studio</p>
-  
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-    <!-- Portfolio Item 1 -->
-    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg">
-      <img src="portfolio1.jpg" alt="Project 1" class="w-full h-48 object-cover">
-      <div class="p-4">
-        <h3 class="text-xl font-semibold mb-2">Project 1</h3>
-        <p class="text-gray-400 text-sm">Deskripsi singkat project 1.</p>
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vina Creative Design — Portofolio</title>
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="description" content="Portofolio Vina Creative Design — desain digital, branding, ilustrasi, konten sosial media." />
+  <style>
+    /* Custom theme tweaks */
+    :root{
+      --bg-1: #0b0b0f; /* very dark */
+      --purple-1: #7c3aed; /* purple */
+      --purple-2: #5b21b6;
+      --accent: rgba(124,58,237,0.15);
+    }
+    html,body{height:100%;}
+    body{
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(92,60,255,0.08), transparent),
+                  radial-gradient(1000px 500px at 90% 90%, rgba(88,28,135,0.06), transparent),
+                  linear-gradient(180deg, var(--bg-1), #06060a);
+      color: #e6e6f0;
+      -webkit-font-smoothing:antialiased;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    .neon-text{
+      text-shadow: 0 0 6px rgba(124,58,237,0.6), 0 0 20px rgba(91,33,182,0.15);
+    }
+    .glass{
+      background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border: 1px solid rgba(255,255,255,0.06);
+      backdrop-filter: blur(6px) saturate(120%);
+    }
+    .portfolio-card:hover .card-thumb{ transform: scale(1.05) rotate(-1deg);}
+    .card-thumb{ transition: transform .6s cubic-bezier(.2,.9,.3,1); }
+    .btn-accent{
+      background: linear-gradient(90deg, var(--purple-1), var(--purple-2));
+      box-shadow: 0 6px 18px rgba(91,33,182,0.2), 0 1px 0 rgba(255,255,255,0.02) inset;
+    }
+    /* mobile sticky CTA */
+    @media (max-width:640px){
+      .mobile-cta{ position: fixed; left: 16px; right: 16px; bottom: 18px; z-index: 60; }
+    }
+  </style>
+</head>
+<body class="min-h-screen">
+  <!-- NAVBAR -->
+  <nav class="w-full py-4 px-6 md:px-12 flex items-center justify-between glass">
+    <div class="flex items-center gap-4">
+      <div class="w-10 h-10 rounded-full flex items-center justify-center" style="background:linear-gradient(45deg,#7c3aed,#5b21b6);box-shadow:0 6px 20px rgba(124,58,237,0.18)">
+        <span class="font-bold">V</span>
+      </div>
+      <div>
+        <a href="#home" class="font-semibold text-lg neon-text">Vina Creative</a>
+        <div class="text-xs text-gray-400">Design & Digital Branding</div>
       </div>
     </div>
-    <!-- Portfolio Item 2 -->
-    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg">
-      <img src="portfolio2.jpg" alt="Project 2" class="w-full h-48 object-cover">
-      <div class="p-4">
-        <h3 class="text-xl font-semibold mb-2">Project 2</h3>
-        <p class="text-gray-400 text-sm">Deskripsi singkat project 2.</p>
+
+    <div class="hidden md:flex items-center gap-6 text-sm text-gray-300">
+      <a href="#portfolio" class="hover:underline">Portfolio</a>
+      <a href="#about" class="hover:underline">About</a>
+      <a href="#services" class="hover:underline">Services</a>
+      <a href="#contact" class="hover:underline">Contact</a>
+      <a href="#" class="btn-accent text-sm px-4 py-2 rounded-md">Hire Me</a>
+    </div>
+
+    <div class="md:hidden">
+      <button id="menuBtn" class="p-2 glass rounded-md">☰</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="home" class="px-6 md:px-12 py-16 flex flex-col md:flex-row items-center gap-8">
+    <div class="flex-1">
+      <h1 class="text-4xl md:text-5xl font-extrabold leading-tight neon-text">Vina Creative Design
+        <span class="block text-lg font-medium text-gray-300 mt-2">Digital-first branding, UI/UX & social content that converts</span>
+      </h1>
+
+      <p class="mt-6 text-gray-300 max-w-xl">Saya membuat identitas digital modern: dari logo, visual untuk social media, sampai interface. Fokus ke estetika ungu‑hitam dengan feel futuristik dan elegan.</p>
+
+      <div class="mt-8 flex gap-3">
+        <a href="#portfolio" class="btn-accent px-5 py-3 rounded-md shadow-lg">Lihat Portofolio</a>
+        <a href="#contact" class="px-5 py-3 rounded-md border border-gray-700 glass">Bekerja sama</a>
+      </div>
+
+      <div class="mt-8 flex items-center gap-4 text-sm text-gray-400">
+        <div class="flex items-center gap-2">
+          <div class="w-3 h-3 rounded-full" style="background:var(--purple-1)"></div>
+          <div>Freelance • Open for projects</div>
+        </div>
+        <div class="border-l border-gray-700 h-6"></div>
+        <div>Based in Indonesia</div>
       </div>
     </div>
-    <!-- Portfolio Item 3 -->
-    <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg">
-      <img src="portfolio3.jpg" alt="Project 3" class="w-full h-48 object-cover">
-      <div class="p-4">
-        <h3 class="text-xl font-semibold mb-2">Project 3</h3>
-        <p class="text-gray-400 text-sm">Deskripsi singkat project 3.</p>
+
+    <div class="w-full md:w-1/2 relative">
+      <div class="rounded-2xl overflow-hidden glass p-6 shadow-2xl">
+        <img src="https://images.unsplash.com/photo-1526378726859-3a1fb8b0b5f7?q=80&w=1400&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="hero" class="w-full h-64 object-cover rounded-xl card-thumb">
+        <div class="mt-4">
+          <h3 class="font-semibold">Featured project — Neon Launch</h3>
+          <p class="text-sm text-gray-400 mt-1">Branding & social campaign design untuk product launch visual di platform sosial.</p>
+        </div>
       </div>
     </div>
-    <!-- Tambahkan lebih banyak project sesuai kebutuhan -->
+  </header>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio" class="px-6 md:px-12 py-12">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl font-bold neon-text">Selected Works</h2>
+      <p class="text-gray-400 mt-2">Koleksi proyek terbaru yang menonjolkan estetika digital ungu‑hitam.</p>
+
+      <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <article class="portfolio-card glass rounded-xl p-4">
+          <div class="overflow-hidden rounded-lg">
+            <img class="w-full h-44 object-cover card-thumb" src="https://images.unsplash.com/photo-1508051123996-69f8caf4891e?q=80&w=1200&auto=format&fit=crop&s=placeholder" alt="project-1">
+          </div>
+          <div class="mt-4">
+            <h3 class="font-semibold">Neon Ecommerce Theme</h3>
+            <p class="text-sm text-gray-400 mt-2">UI kit & campaign assets untuk toko online fashion.</p>
+            <div class="mt-3 flex items-center justify-between">
+              <div class="text-xs text-gray-400">Branding • UI • Assets</div>
+              <button onclick="openModal('proj1')" class="text-sm px-3 py-1 rounded-md border border-gray-700">Lihat</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="portfolio-card glass rounded-xl p-4">
+          <div class="overflow-hidden rounded-lg">
+            <img class="w-full h-44 object-cover card-thumb" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop&s=placeholder" alt="project-2">
+          </div>
+          <div class="mt-4">
+            <h3 class="font-semibold">Social Content Pack</h3>
+            <p class="text-sm text-gray-400 mt-2">Template konten yang siap dipakai untuk campaign viral.</p>
+            <div class="mt-3 flex items-center justify-between">
+              <div class="text-xs text-gray-400">Social • Motion • Template</div>
+              <button onclick="openModal('proj2')" class="text-sm px-3 py-1 rounded-md border border-gray-700">Lihat</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="portfolio-card glass rounded-xl p-4">
+          <div class="overflow-hidden rounded-lg">
+            <img class="w-full h-44 object-cover card-thumb" src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1200&auto=format&fit=crop&s=placeholder" alt="project-3">
+          </div>
+          <div class="mt-4">
+            <h3 class="font-semibold">Brand Identity — Lunar</h3>
+            <p class="text-sm text-gray-400 mt-2">Logo, color system, dan guideline brand untuk startup teknologi.</p>
+            <div class="mt-3 flex items-center justify-between">
+              <div class="text-xs text-gray-400">Logo • Brand • Guideline</div>
+              <button onclick="openModal('proj3')" class="text-sm px-3 py-1 rounded-md border border-gray-700">Lihat</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Add more cards as needed -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT & SERVICES -->
+  <section id="about" class="px-6 md:px-12 py-12">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+      <div class="md:col-span-2">
+        <h2 class="text-2xl font-bold neon-text">Tentang Vina</h2>
+        <p class="text-gray-300 mt-4">Saya, Vina — content & visual designer yang fokus pada estetika digital. Pengalaman membuat kampanye brand, UI kit, dan konten sosial media untuk berbagai klien. Saya suka eksperimen gradien ungu, tipografi tebal, dan motion micro-interactions.</p>
+
+        <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="glass rounded-lg p-4">
+            <h4 class="font-semibold">Apa yang saya kerjakan</h4>
+            <ul class="text-sm text-gray-400 mt-2 list-disc ml-4">
+              <li>Brand Identity & Guidelines</li>
+              <li>UI/UX & Landing Pages</li>
+              <li>Social Campaign Design</li>
+            </ul>
+          </div>
+          <div class="glass rounded-lg p-4">
+            <h4 class="font-semibold">Tools & Workflow</h4>
+            <p class="text-sm text-gray-400 mt-2">Figma • Illustrator • Photoshop • After Effects • TailwindCSS • Basic HTML/CSS</p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="glass rounded-xl p-6">
+        <h3 class="font-semibold">Quick Facts</h3>
+        <ul class="mt-3 text-sm text-gray-300 space-y-2">
+          <li>📁 50+ projects delivered</li>
+          <li>⏱️ Typical delivery: 1–3 weeks (project dependent)</li>
+          <li>🤝 Open for collaboration</li>
+        </ul>
+        <div class="mt-6">
+          <a href="#contact" class="btn-accent px-4 py-2 rounded-md">Let's talk</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="px-6 md:px-12 py-12">
+    <div class="max-w-4xl mx-auto glass rounded-xl p-8">
+      <h2 class="text-2xl font-bold neon-text">Contact</h2>
+      <p class="text-gray-400 mt-2">Tertarik bekerja sama atau butuh desain visual? Isi form sederhana ini atau langsung kirim email.</p>
+
+      <form class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4" onsubmit="handleForm(event)">
+        <input required name="name" placeholder="Nama" class="p-3 rounded-md bg-transparent border border-gray-700" />
+        <input required name="email" placeholder="Email" class="p-3 rounded-md bg-transparent border border-gray-700" />
+        <input name="subject" placeholder="Subject" class="p-3 rounded-md bg-transparent border border-gray-700 col-span-2" />
+        <textarea required name="message" placeholder="Pesan" class="p-3 rounded-md bg-transparent border border-gray-700 col-span-2 h-28"></textarea>
+        <div class="col-span-2 flex items-center justify-between">
+          <div class="text-sm text-gray-400">atau kirim ke: <a href="mailto:vina@example.com" class="underline">vina@example.com</a></div>
+          <button type="submit" class="btn-accent px-5 py-2 rounded-md">Kirim Pesan</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="px-6 md:px-12 py-8 text-gray-400">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <div>© <strong>Vina Creative</strong> — All rights reserved.</div>
+      <div class="flex gap-4">
+        <a href="#">Dribbble</a>
+        <a href="#">Behance</a>
+        <a href="#">Instagram</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL (SIMPLE) -->
+  <div id="modal" class="fixed inset-0 bg-black/60 hidden items-center justify-center z-50">
+    <div class="bg-gradient-to-br from-[#0b0b0f] to-[#08080a] rounded-xl max-w-3xl w-full p-6 glass">
+      <button onclick="closeModal()" class="float-right">✕</button>
+      <div id="modalContent" class="mt-4"></div>
+    </div>
   </div>
-</section>
+
+  <!-- MOBILE CTA -->
+  <div class="mobile-cta hidden sm:hidden md:hidden">
+    <!-- reserved for mobile if needed -->
+  </div>
+
+  <script>
+    // menu toggle for small screens
+    const menuBtn = document.getElementById('menuBtn');
+    menuBtn?.addEventListener('click', ()=>{
+      alert('Mobile menu — You can wire up a slide-out menu here.');
+    });
+
+    function openModal(id){
+      const modal = document.getElementById('modal');
+      const content = document.getElementById('modalContent');
+      modal.classList.remove('hidden');
+      // basic sample content — replace with real project detail
+      if(id === 'proj1'){
+        content.innerHTML = `<h3 class="text-xl font-semibold">Neon Ecommerce Theme</h3><p class="text-gray-400 mt-2">Detail proyek: UI kit, mockups, dan assets campaign.</p>`;
+      }else if(id === 'proj2'){
+        content.innerHTML = `<h3 class="text-xl font-semibold">Social Content Pack</h3><p class="text-gray-400 mt-2">Detail proyek: 30 template post & 10 motion hooks.</p>`;
+      }else{
+        content.innerHTML = `<h3 class="text-xl font-semibold">Brand Identity — Lunar</h3><p class="text-gray-400 mt-2">Detail proyek: logo, color system, guideline, dan aset.</p>`;
+      }
+    }
+    function closeModal(){
+      document.getElementById('modal').classList.add('hidden');
+    }
+
+    function handleForm(e){
+      e.preventDefault();
+      const f = e.target;
+      // simple UI feedback only — integrate with your backend or email API
+      alert('Terima kasih, pesan terkirim!\n(NB: ini demo front-end. Hubungkan ke backend atau email service untuk kirim.)');
+      f.reset();
+    }
+  </script>
+</body>
+</html>
